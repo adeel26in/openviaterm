@@ -8,4 +8,4 @@ git clone https://github.com/adeel26in/openviaterm.git
 
 cd openviaterm/src
 
-go run # If you want to build it run go build
+go run openviaterm.go # If you want to build it run go build
