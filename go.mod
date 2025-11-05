@@ -1,6 +1,6 @@
 module openviaterm
 
-go 1.25.2
+go 1.25.3
 
 require github.com/cli/browser v1.3.0
 
