@@ -8,21 +8,40 @@ import (
 
 func main() {
 
-	var input_url string
+	var input_first string
 
 	fmt.Println("Welcome to openviaterm!")
-	fmt.Println("WARNING: THIS IS NOT A TERMINAL BROWSER! IT OPENS A NEW BROWSER WINDOW!")
 
-	fmt.Print("What URL would you like to open?: ")
+	fmt.Print("What would you like to open? File or URL: ")
 
-	fmt.Scan(&input_url)
+	fmt.Scan(&input_first)
 
-	err := browser.OpenURL(input_url)
+	switch input_first {
+	case "File", "file":
+		var file_path string
 
-	if err != nil {
+		fmt.Print("Enter the file path: ")
+		fmt.Println("USE THIS AT YOUR OWN RISK! CAN BE BROKEN OR CAN GLITCH!")
+		fmt.Scan(&file_path)
 
-		fmt.Println("Error opening URL:", err)
-		return
+		err := browser.OpenFile(file_path)
+
+		if err != nil {
+
+			fmt.Println("Error opening file:", err)
+		}
+	case "URL", "url":
+		var url string
+
+		fmt.Print("Enter the URL: ")
+		fmt.Scan(&url)
+
+		err := browser.OpenURL(url)
+
+		if err != nil {
+
+			fmt.Println("Error opening URL:", err)
+		}
 	}
 
 }
